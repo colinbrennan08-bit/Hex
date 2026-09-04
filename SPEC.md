@@ -15,12 +15,12 @@ after each dash and leave the dashes alone.
 
 ---
 
-- **T &mdash; Thing:** *School and personal task tracker and manager, reminds me of upcoming event and assignemnts*
-- **A &mdash; Audience:** *Personalized for me as a mechanical engineering major*
-- **R &mdash; Requirements:** *needs a clean easy to read UI and must give daily breifs on what I need to work on, ranks task by when I should do them*
-- **G &mdash; Guardrails:** *Assume anything and auto check tasks or not notify me of a task*
+- **T &mdash; Thing:** *Personal page showcasing my resume, Build personally around me, Engineering vibe to the site, showcase the things ive done and built*
+- **A &mdash; Audience:** *Personalized for me as a mechanical engineering major, for comapnies and recruters to view and get to know me*
+- **R &mdash; Requirements:** *needs a clean easy to read UI and showcase me and make me look good to recruters, and showcase my skills and projects*
+- **G &mdash; Guardrails:** *Dont make me look bad, keep it personalized, not em dashes*
 - **E &mdash; Experience:** *blue, techno, engineering,dark blue with light blue accents, engineering grid paper background*
-- **T &mdash; Test:** *That it can track all my tasks and notifies me what needs to get done*
+- **T &mdash; Test:** *Show off me and make me look like a valuable member*
 
 ---
 
