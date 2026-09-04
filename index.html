@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MECH_CORE // Colin Brennan Task Manager & Briefing Console</title>
+  <title>COLIN BRENNAN // Mechanical Engineering Portfolio</title>
   
   <!-- Single Google Font Link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,22 +12,20 @@
 
   <style>
     /* ==========================================
-       RESET & BLUEPRINT GRID THEME (TARGET)
-       Theme: Techno, Dark Blue background with Electric Blue accents
+       THEME & DESIGN SYSTEM
+       Tone: Clean, Technical, Minimal Blueprint Aesthetic
        ========================================== */
     :root {
-      --bg-dark: #050b14;
-      --bg-card: #0a1628;
-      --bg-card-hover: #10223d;
-      --accent-cyan: #00f0ff;
-      --accent-blue: #0077ff;
-      --accent-amber: #ffaa00;
-      --accent-red: #ff3366;
-      --accent-green: #00ffa3;
-      --text-main: #e2f1ff;
-      --text-muted: #6482a6;
-      --grid-line: rgba(0, 240, 255, 0.08);
-      --border-color: rgba(0, 240, 255, 0.28);
+      --bg-dark: #060d19;
+      --bg-card: #0c182b;
+      --bg-card-hover: #12223c;
+      --accent-cyan: #00e5ff;
+      --accent-blue: #0066ff;
+      --accent-green: #00e699;
+      --text-main: #e6f2ff;
+      --text-muted: #7a9bbd;
+      --grid-line: rgba(0, 229, 255, 0.04);
+      --border-color: rgba(0, 229, 255, 0.18);
       --font-main: 'Rajdhani', -apple-system, sans-serif;
     }
 
@@ -37,69 +35,47 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-dark);
-      /* Engineering Blueprint Grid Background */
       background-image: 
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-size: 24px 24px;
       color: var(--text-main);
       font-family: var(--font-main);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
       padding-bottom: 60px;
     }
 
     /* Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
     ::-webkit-scrollbar-track {
       background: var(--bg-dark);
     }
     ::-webkit-scrollbar-thumb {
       background: var(--border-color);
-      border-radius: 4px;
+      border-radius: 3px;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Blueprint CAD Corner Trim */
-    .cad-corner {
-      position: relative;
-    }
-    .cad-corner::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      width: 8px;
-      height: 8px;
-      border-top: 2px solid var(--accent-cyan);
-      border-left: 2px solid var(--accent-cyan);
-    }
-    .cad-corner::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      right: -2px;
-      width: 8px;
-      height: 8px;
-      border-bottom: 2px solid var(--accent-cyan);
-      border-right: 2px solid var(--accent-cyan);
+      padding: 0 24px;
     }
 
     /* ==========================================
-       NAVIGATION & HEADER
+       NAVIGATION
        ========================================== */
     header {
-      background: rgba(5, 11, 20, 0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(6, 13, 25, 0.94);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
@@ -110,23 +86,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 70px;
+      height: 64px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: 2px;
+      font-size: 1.25rem;
+      letter-spacing: 1.5px;
       color: var(--accent-cyan);
     }
 
     .brand-icon {
-      width: 36px;
-      height: 36px;
-      animation: rotateGear 20s linear infinite;
+      width: 28px;
+      height: 28px;
+      animation: rotateGear 25s linear infinite;
     }
 
     @keyframes rotateGear {
@@ -136,7 +112,7 @@
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       list-style: none;
     }
 
@@ -144,161 +120,142 @@
       color: var(--text-muted);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: all 0.2s ease;
-      padding: 6px 12px;
-      border-radius: 4px;
+      transition: color 0.2s ease;
+      padding: 4px 8px;
     }
 
     .nav-links a:hover, .nav-links a.active {
       color: var(--accent-cyan);
-      background: rgba(0, 240, 255, 0.08);
-      border-bottom: 2px solid var(--accent-cyan);
     }
 
     .sys-status {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--accent-green);
-      background: rgba(0, 255, 163, 0.08);
-      padding: 4px 12px;
-      border: 1px solid rgba(0, 255, 163, 0.3);
-      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       background-color: var(--accent-green);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-green);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+      box-shadow: 0 0 6px var(--accent-green);
     }
 
     /* ==========================================
-       HERO & DAILY BRIEFING DISPATCH
+       HERO SECTION
        ========================================== */
     .hero {
-      padding: 30px 0 20px;
+      padding: 60px 0 40px;
       display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: center;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 868px) {
       .hero {
         grid-template-columns: 1fr;
       }
     }
 
-    .hero-text h1 {
-      font-size: 2.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-
-    .hero-text h1 span {
-      color: var(--accent-cyan);
-      text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-    }
-
     .subhead {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-    }
-
-    /* Daily Brief Box Requirement */
-    .brief-card {
-      background: rgba(10, 22, 40, 0.95);
-      border: 1px solid var(--accent-cyan);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-
-    .brief-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px dashed var(--border-color);
-      padding-bottom: 10px;
-      margin-bottom: 12px;
-    }
-
-    .brief-title {
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1rem;
       color: var(--accent-cyan);
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 8px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .brief-date {
-      font-size: 0.85rem;
+    .hero-text h1 {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero-bio {
       color: var(--text-muted);
-      font-family: monospace;
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+      max-width: 680px;
     }
 
-    .brief-list {
-      list-style: none;
+    .cta-group {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .brief-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(5, 11, 20, 0.6);
-      padding: 8px 12px;
-      border-left: 3px solid var(--accent-cyan);
+    .btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 20px;
+      font-family: var(--font-main);
+      font-weight: 600;
       font-size: 0.95rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 2px;
     }
 
-    .brief-item.urgent {
-      border-left-color: var(--accent-red);
-      background: rgba(255, 51, 102, 0.08);
+    .btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.05);
     }
 
-    /* Telemetry Panel / Metrics */
-    .telemetry-panel {
+    .btn-primary {
+      background: var(--accent-cyan);
+      color: var(--bg-dark);
+      border: 1px solid var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: #33ebff;
+      color: var(--bg-dark);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+    }
+
+    /* Clean Metrics Box */
+    .metrics-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       padding: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      position: relative;
+      gap: 16px;
+      border-radius: 2px;
     }
 
     .metric-box {
-      background: rgba(5, 11, 20, 0.6);
-      border: 1px solid rgba(0, 240, 255, 0.15);
-      padding: 10px;
       text-align: center;
+      padding: 8px;
     }
 
     .metric-val {
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--accent-cyan);
+      line-height: 1;
+      margin-bottom: 4px;
     }
 
     .metric-lbl {
@@ -308,463 +265,117 @@
       letter-spacing: 1px;
     }
 
-    .gauge-wrapper {
-      grid-column: span 2;
-      margin-top: 5px;
-    }
-
-    .gauge-title {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .gauge-bar-bg {
-      height: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      overflow: hidden;
-    }
-
-    .gauge-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-      box-shadow: 0 0 10px var(--accent-cyan);
-      transition: width 0.5s ease;
-    }
-
     /* ==========================================
-       UPCOMING EVENTS & EXAMS TIMELINE WIDGET
-       ========================================== */
-    .events-bar {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 16px;
-      margin-bottom: 30px;
-    }
-
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .event-chip {
-      background: rgba(5, 11, 20, 0.7);
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .event-icon {
-      color: var(--accent-amber);
-      font-size: 1.2rem;
-    }
-
-    .event-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .event-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .event-date {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* ==========================================
-       MAIN TASK TRACKER CONSOLE
+       SECTION HEADINGS
        ========================================== */
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
       gap: 10px;
       border-bottom: 1px solid var(--border-color);
       padding-bottom: 8px;
-    }
-
-    .section-title::before {
-      content: '//';
-      color: var(--accent-cyan);
-    }
-
-    .tracker-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 20px;
-      background: var(--bg-card);
-      padding: 12px 16px;
-      border: 1px solid var(--border-color);
-    }
-
-    .filter-group {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      background: rgba(0, 240, 255, 0.08);
-      border: 1px solid var(--border-color);
       color: var(--text-main);
-      padding: 8px 14px;
-      font-family: var(--font-main);
-      font-weight: 600;
-      font-size: 0.88rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    .btn:hover {
-      background: var(--accent-cyan);
-      color: var(--bg-dark);
-      box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-    }
-
-    .btn-primary {
-      background: var(--accent-cyan);
-      color: var(--bg-dark);
-      border: 1px solid var(--accent-cyan);
-    }
-    .btn-primary:hover {
-      background: #33f3ff;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
-    }
-
-    .btn.active {
-      background: var(--accent-blue);
-      border-color: var(--accent-blue);
-      color: #fff;
-    }
-
-    /* Task Cards */
-    .task-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 50px;
-    }
-
-    .task-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(0, 240, 255, 0.18);
-      padding: 16px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 16px;
-      align-items: center;
-      transition: all 0.2s ease;
-    }
-
-    .task-card:hover {
-      border-color: var(--accent-cyan);
-      background: var(--bg-card-hover);
-      transform: translateX(3px);
-    }
-
-    .task-card.completed {
-      opacity: 0.5;
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .task-card.completed .task-title {
-      text-decoration: line-through;
-      color: var(--text-muted);
-    }
-
-    .custom-checkbox {
-      width: 22px;
-      height: 22px;
-      border: 2px solid var(--accent-cyan);
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-
-    .task-card.completed .custom-checkbox {
-      background: var(--accent-green);
-      border-color: var(--accent-green);
-    }
-
-    .custom-checkbox::after {
-      content: '✓';
-      color: var(--bg-dark);
-      font-weight: 900;
-      font-size: 14px;
-      display: none;
-    }
-
-    .task-card.completed .custom-checkbox::after {
-      display: block;
-    }
-
-    .task-main {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .task-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.8rem;
-    }
-
-    .badge {
-      padding: 2px 6px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .badge-school {
-      background: rgba(0, 119, 255, 0.2);
-      color: #66b2ff;
-      border: 1px solid rgba(0, 119, 255, 0.4);
-    }
-
-    .badge-personal {
-      background: rgba(255, 170, 0, 0.2);
-      color: #ffcc66;
-      border: 1px solid rgba(255, 170, 0, 0.4);
-    }
-
-    .badge-priority-high {
-      background: rgba(255, 51, 102, 0.2);
-      color: #ff668c;
-      border: 1px solid rgba(255, 51, 102, 0.4);
-    }
-    .badge-priority-med {
-      background: rgba(255, 170, 0, 0.2);
-      color: var(--accent-amber);
-      border: 1px solid rgba(255, 170, 0, 0.4);
-    }
-    .badge-priority-low {
-      background: rgba(0, 255, 163, 0.15);
-      color: var(--accent-green);
-      border: 1px solid rgba(0, 255, 163, 0.3);
-    }
-
-    .rank-tag {
+    .section-title span {
       color: var(--accent-cyan);
-      font-family: monospace;
-      font-weight: 700;
-    }
-
-    .task-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .task-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .task-date {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .task-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-icon {
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--text-muted);
-      padding: 6px;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .btn-icon:hover {
-      color: var(--accent-red);
-      border-color: rgba(255, 51, 102, 0.3);
-      background: rgba(255, 51, 102, 0.1);
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 40px;
-      background: var(--bg-card);
-      border: 1px dashed var(--border-color);
-      color: var(--text-muted);
     }
 
     /* ==========================================
-       MODAL DIALOG (ADD TASK)
+       TECHNICAL SKILLS
        ========================================== */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(5, 11, 20, 0.88);
-      backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal {
-      background: var(--bg-card);
-      border: 1px solid var(--accent-cyan);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
-      width: 90%;
-      max-width: 500px;
-      padding: 24px;
-      position: relative;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 10px;
-    }
-
-    .modal-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent-cyan);
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      letter-spacing: 1px;
-    }
-
-    .form-control {
-      width: 100%;
-      background: rgba(5, 11, 20, 0.8);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 10px;
-      font-family: var(--font-main);
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-control:focus {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
-    }
-
-    .form-row {
+    .skills-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
     }
 
-    .modal-footer {
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 2px;
+    }
+
+    .skill-category {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .skill-tags {
       display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 24px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: rgba(0, 102, 255, 0.12);
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      color: var(--text-main);
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 2px;
     }
 
     /* ==========================================
-       PORTFOLIO & TOOLS
+       ENGINEERING PROJECTS
        ========================================== */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: border-color 0.2s;
+      border-radius: 2px;
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
       border-color: var(--accent-cyan);
     }
 
     .project-schematic {
-      height: 160px;
-      background: #061121;
+      height: 150px;
+      background: #081222;
       border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 16px;
     }
 
     .project-schematic svg {
-      width: 80%;
-      height: 80%;
+      width: 100%;
+      height: 100%;
+      max-height: 110px;
     }
 
     .project-body {
-      padding: 18px;
+      padding: 20px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .project-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 4px;
     }
@@ -772,22 +383,114 @@
     .project-specs {
       font-size: 0.8rem;
       color: var(--accent-cyan);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-family: monospace;
+      letter-spacing: 0.5px;
     }
 
     .project-desc {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       margin-bottom: 16px;
       flex: 1;
     }
 
+    .project-highlights {
+      list-style: none;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
+    }
+
+    .project-highlights li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .project-highlights li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+    }
+
+    /* ==========================================
+       EXPERIENCE & RESUME
+       ========================================== */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    .timeline-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 2px;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .role-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .company-name {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      background: rgba(6, 13, 25, 0.6);
+      padding: 3px 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 2px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+    }
+
+    /* ==========================================
+       CALCULATOR TOOL
+       ========================================== */
     .tool-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       padding: 24px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
+      border-radius: 2px;
     }
 
     .calc-grid {
@@ -802,8 +505,38 @@
       }
     }
 
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: rgba(6, 13, 25, 0.8);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 12px;
+      font-family: var(--font-main);
+      font-size: 1rem;
+      outline: none;
+      border-radius: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-cyan);
+    }
+
     .calc-output {
-      background: rgba(5, 11, 20, 0.8);
+      background: rgba(6, 13, 25, 0.8);
       border: 1px solid var(--border-color);
       padding: 20px;
       display: flex;
@@ -811,12 +544,129 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      border-radius: 2px;
     }
 
     .calc-res-val {
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--accent-cyan);
+      line-height: 1;
+      margin: 4px 0;
+    }
+
+    /* ==========================================
+       CONTACT SECTION
+       ========================================== */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 28px;
+      margin-bottom: 40px;
+      border-radius: 2px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .contact-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-weight: bold;
+      border-radius: 2px;
+    }
+
+    /* ==========================================
+       MODAL DIALOG
+       ========================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(6, 13, 25, 0.85);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      width: 90%;
+      max-width: 540px;
+      padding: 24px;
+      border-radius: 2px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-cyan);
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .btn-icon:hover {
+      color: var(--text-main);
     }
 
     footer {
@@ -838,539 +688,336 @@
           <circle cx="50" cy="50" r="24" stroke="currentColor" stroke-width="6"/>
           <path d="M50 10 V20 M50 80 V90 M10 50 H20 M80 50 H90 M22 22 L29 29 M71 71 L78 78 M22 78 L29 71 M71 29 L78 22" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
         </svg>
-        <span>MECH_CORE // COLIN BRENNAN</span>
+        <span>COLIN BRENNAN</span>
       </div>
 
       <nav>
         <ul class="nav-links">
-          <li><a href="#briefing" class="active">Daily Brief</a></li>
-          <li><a href="#console">Task Console</a></li>
-          <li><a href="#projects">CAD Projects</a></li>
-          <li><a href="#calc">Eng Calculator</a></li>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="sys-status">
         <span class="status-dot"></span>
-        <span>SYSTEM ONLINE</span>
+        <span>OPEN TO ROLES</span>
       </div>
     </div>
   </header>
 
   <div class="container">
 
-    <!-- ================= HERO & DAILY BRIEFING ================= -->
-    <section class="hero" id="briefing">
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="about">
       <div>
+        <div class="subhead">Mechanical Engineer | BS.ME '26</div>
         <div class="hero-text">
-          <div class="subhead">// MECHANICAL ENGINEERING MAJOR HQ</div>
-          <h1>Colin Brennan <span>[BS.ME '26]</span></h1>
-          <p style="color: var(--text-muted); margin-bottom: 16px;">
-            Concentrating in Finite Element Analysis, Kinematics, and Solid Mechanics. Track academic deliverables, Capstone tasks, and personal projects ranked by urgency.
-          </p>
+          <h1>Colin Brennan</h1>
+        </div>
+        <p class="hero-bio">
+          Mechanical Engineering student specializing in solid mechanics, CAD modeling, structural FEA, and hardware prototyping. Experienced in guiding concepts from initial engineering blueprints to physical testing and precision fabrication.
+        </p>
+
+        <div class="cta-group">
+          <a href="#contact" class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            GET IN TOUCH
+          </a>
+          <a href="#projects" class="btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            VIEW PROJECTS
+          </a>
+        </div>
+      </div>
+
+      <!-- Clean Metrics Panel -->
+      <div class="metrics-card">
+        <div class="metric-box">
+          <div class="metric-val">3.8</div>
+          <div class="metric-lbl">Major GPA</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color: var(--accent-green);">12+</div>
+          <div class="metric-lbl">CAD Models</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color: var(--accent-cyan);">2026</div>
+          <div class="metric-lbl">Graduation</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-val" style="color: var(--text-main);">FSAE</div>
+          <div class="metric-lbl">Powertrain Lead</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TECHNICAL SKILLS ================= -->
+    <section id="skills" style="scroll-margin-top: 80px;">
+      <div class="section-title"><span>//</span> Technical Skills</div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-category">CAD & Design</div>
+          <div class="skill-tags">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">GD&T (ASME Y14.5)</span>
+            <span class="tag">DFM / DFA</span>
+          </div>
         </div>
 
-        <!-- Daily Brief Box (Requirement R) -->
-        <div class="brief-card cad-corner">
-          <div class="brief-header">
-            <div class="brief-title">
-              <span>⚡ DAILY BRIEFING & IMMEDIATE DISPATCH</span>
-            </div>
-            <div class="brief-date" id="currentDate">2026-09-04</div>
+        <div class="skill-card">
+          <div class="skill-category">FEA & Simulation</div>
+          <div class="skill-tags">
+            <span class="tag">ANSYS Mechanical</span>
+            <span class="tag">CFD Fluent</span>
+            <span class="tag">Stress & Strain</span>
+            <span class="tag">MATLAB</span>
           </div>
-          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">
-            Automatically calculated order of work based on target due dates and stress levels:
-          </p>
-          <ul class="brief-list" id="briefList">
-            <!-- Dynamically populated by JS based on task urgency ranking -->
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">Fabrication</div>
+          <div class="skill-tags">
+            <span class="tag">CNC Milling & Lathe</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Strain Gauges</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">Mechatronics</div>
+          <div class="skill-tags">
+            <span class="tag">Arduino & ESP32</span>
+            <span class="tag">Python</span>
+            <span class="tag">Stepper Motors</span>
+            <span class="tag">DAQ Systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS ================= -->
+    <section id="projects" style="scroll-margin-top: 80px;">
+      <div class="section-title"><span>//</span> Featured Projects</div>
+
+      <div class="portfolio-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-schematic">
+            <svg viewBox="0 0 200 120" stroke="#00e5ff" fill="none" stroke-width="1.2">
+              <rect x="20" y="20" width="160" height="80" stroke-dasharray="4 2"/>
+              <circle cx="60" cy="60" r="28"/>
+              <circle cx="140" cy="60" r="18"/>
+              <line x1="60" y1="32" x2="140" y2="42" stroke="#0066ff"/>
+              <line x1="60" y1="88" x2="140" y2="78" stroke="#0066ff"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Formula SAE Gearbox</div>
+            <div class="project-specs">SOLIDWORKS | ANSYS FEA | 4.2:1 RATIO</div>
+            <p class="project-desc">Designed a compact planetary reduction gearbox in 7075-T6 aluminum for an electric racing vehicle drivetrain.</p>
+            <ul class="project-highlights">
+              <li>Reduced weight by 18% through topology optimization</li>
+              <li>Validated gear fatigue life per ISO 6336 standards</li>
+            </ul>
+            <button class="btn" style="width: 100%; justify-content: center;" onclick="showProjectDetails('Planetary Gearbox', 'Detailed analysis included tooth surface stress verification, fatigue life calculations, and precision CNC manufacturing tolerances.')">VIEW SPECS</button>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-schematic">
+            <svg viewBox="0 0 200 120" stroke="#00e5ff" fill="none" stroke-width="1.2">
+              <path d="M 30 90 Q 70 20 100 60 T 170 30" stroke="#00e699" stroke-width="1.8"/>
+              <line x1="20" y1="90" x2="180" y2="90" stroke="#7a9bbd"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-title">6-DOF Robotic Arm</div>
+            <div class="project-specs">ROS2 | KINEMATICS | CYCLOIDAL DRIVES</div>
+            <p class="project-desc">Constructed an articulated arm utilizing 3D printed cycloidal reducers and optical encoder feedback.</p>
+            <ul class="project-highlights">
+              <li>Zero-backlash custom drivetrain for precision repeatably</li>
+              <li>Calculated kinematics using Denavit-Hartenberg parameters</li>
+            </ul>
+            <button class="btn" style="width: 100%; justify-content: center;" onclick="showProjectDetails('6-DOF Robotic Arm', 'Custom packaging integrated with microcontroller feedback control and Python kinematics script.')">VIEW SPECS</button>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-schematic">
+            <svg viewBox="0 0 200 120" stroke="#00e5ff" fill="none" stroke-width="1.2">
+              <rect x="40" y="30" width="120" height="60" rx="4"/>
+              <path d="M 50 30 V 90 M 90 30 V 90 M 130 30 V 90" stroke="#0066ff"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Shell & Tube Exchanger</div>
+            <div class="project-specs">CFD FLUENT | THERMAL | 88.4% EFFICIENCY</div>
+            <p class="project-desc">Simulated and bench-tested a compact heat exchanger for fluid thermal management.</p>
+            <ul class="project-highlights">
+              <li>Modeled fluid pressure drop and thermal dissipation in Fluent</li>
+              <li>Correlated analytical model within 4% of physical bench testing</li>
+            </ul>
+            <button class="btn" style="width: 100%; justify-content: center;" onclick="showProjectDetails('Heat Exchanger', 'Thermal analysis comparing log-mean temperature difference calculations with sensor test logs.')">VIEW SPECS</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE & RESUME ================= -->
+    <section id="experience" style="scroll-margin-top: 80px;">
+      <div class="section-title"><span>//</span> Experience & Leadership</div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="role-title">Mechanical Engineering Intern</div>
+              <div class="company-name">Apex Precision Engineering Systems</div>
+            </div>
+            <div class="timeline-date">MAY 2025 : AUG 2025</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Created 3D CAD models and detail drawings with GD&T per ASME Y14.5 for production components.</li>
+            <li>Conducted FEA structural analysis on mounting brackets, reducing material mass by 12% while maintaining factor of safety.</li>
+            <li>Partnered with shop machinist team to resolve DFM tolerance stack-up issues.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="role-title">Lead Powertrain Engineer</div>
+              <div class="company-name">Formula SAE Racing Team</div>
+            </div>
+            <div class="timeline-date">SEP 2024 : PRESENT</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Directed design of drivetrain gearing, differential mountings, and rear axle assembly.</li>
+            <li>Managed team production budget, component procurement, and CNC manufacturing schedules.</li>
+            <li>Executed benchtop physical testing with strain gauges to validate structural FEA simulations.</li>
           </ul>
         </div>
       </div>
-
-      <!-- Telemetry Dashboard Panel -->
-      <div class="telemetry-panel cad-corner">
-        <div class="metric-box">
-          <div class="metric-val" id="stat-total">0</div>
-          <div class="metric-lbl">Total Workload</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val" id="stat-pending" style="color: var(--accent-amber);">0</div>
-          <div class="metric-lbl">Action Required</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val" id="stat-academic" style="color: var(--accent-blue);">0</div>
-          <div class="metric-lbl">School Deliverables</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val" id="stat-personal" style="color: var(--accent-green);">0</div>
-          . <div class="metric-lbl">Personal / CAD</div>
-        </div>
-
-        <div class="gauge-wrapper">
-          <div class="gauge-title">
-            <span>WORKLOAD COMPLETION EFFICIENCY</span>
-            <span id="gauge-percent">0%</span>
-          </div>
-          <div class="gauge-bar-bg">
-            <div class="gauge-bar-fill" id="gauge-fill"></div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- ================= UPCOMING EVENTS REMINDER BAR ================= -->
-    <div class="events-bar cad-corner">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px;">
-          📅 UPCOMING EVENTS & EXAM REMINDERS
-        </span>
-        <span style="font-size: 0.8rem; color: var(--text-muted);">AUTO-SYNCED TO TERM CALENDAR</span>
-      </div>
-      <div class="events-grid">
-        <div class="event-chip">
-          <div class="event-icon">📌</div>
-          <div class="event-info">
-            <div class="event-name">FEA Midterm Exam</div>
-            <div class="event-date">ME 410 • Sep 14, 2026</div>
-          </div>
-        </div>
-        <div class="event-chip">
-          <div class="event-icon">⚙️</div>
-          <div class="event-info">
-            <div class="event-name">FSAE Chassis Design Review</div>
-            <div class="event-date">Capstone • Sep 20, 2026</div>
-          </div>
-        </div>
-        <div class="event-chip">
-          <div class="event-icon">🔬</div>
-          <div class="event-info">
-            <div class="event-name">Thermo-Fluids Lab Testing</div>
-            <div class="event-date">ME 305 • Sep 25, 2026</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- ================= INTERACTIVE GEAR CALCULATOR ================= -->
+    <section id="calc" style="scroll-margin-top: 80px;">
+      <div class="section-title"><span>//</span> Interactive Tool: Gear Speed Calculator</div>
 
-    <!-- ================= TASK MANAGER CONSOLE ================= -->
-    <section id="console" style="scroll-margin-top: 90px;">
-      <div class="section-title">Task & Deliverable Console (Rank Ordered)</div>
-
-      <div class="tracker-controls cad-corner">
-        <div class="filter-group">
-          <button class="btn active" onclick="filterTasks('all', this)">ALL QUEUES</button>
-          <button class="btn" onclick="filterTasks('school', this)">ACADEMIC / SCHOOL</button>
-          <button class="btn" onclick="filterTasks('personal', this)">PERSONAL / PROJECTS</button>
-          <button class="btn" onclick="filterTasks('pending', this)">UNFINISHED ONLY</button>
-        </div>
-
-        <button class="btn btn-primary" onclick="openModal()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-          LOG NEW TASK
-        </button>
-      </div>
-
-      <!-- Task List Container -->
-      <div class="task-list" id="taskList">
-        <!-- Rendered dynamically by JavaScript -->
-      </div>
-    </section>
-
-    <!-- ================= ENGINEERING PORTFOLIO ================= -->
-    <section id="projects" style="scroll-margin-top: 90px;">
-      <div class="section-title">Engineering Portfolio & CAD Showcase</div>
-
-      <div class="portfolio-grid">
-        <div class="project-card cad-corner">
-          <div class="project-schematic">
-            <svg viewBox="0 0 200 120" stroke="#00f0ff" fill="none" stroke-width="1.5">
-              <rect x="20" y="20" width="160" height="80" stroke-dasharray="4 2"/>
-              <circle cx="60" cy="60" r="30"/>
-              <circle cx="140" cy="60" r="20"/>
-              <line x1="60" y1="30" x2="140" y2="40" stroke="#ff3366"/>
-              <line x1="60" y1="90" x2="140" y2="80" stroke="#ff3366"/>
-            </svg>
-          </div>
-          <div class="project-body">
-            <div class="project-title">Formula SAE Planetary Gearbox</div>
-            <div class="project-specs">SOLIDWORKS // ANSYS FEA // 4.2:1 RATIO</div>
-            <p class="project-desc">Compact planetary reduction assembly engineered for high torque density and lightweight aluminum housing.</p>
-            <button class="btn" style="width: 100%; justify-content: center;">OPEN SPECIFICATION SHEET</button>
-          </div>
-        </div>
-
-        <div class="project-card cad-corner">
-          <div class="project-schematic">
-            <svg viewBox="0 0 200 120" stroke="#00f0ff" fill="none" stroke-width="1.5">
-              <path d="M 30 90 Q 70 20 100 60 T 170 30" stroke="#00ffa3" stroke-width="2"/>
-              <line x1="20" y1="90" x2="180" y2="90" stroke="#6482a6"/>
-            </svg>
-          </div>
-          <div class="project-body">
-            <div class="project-title">6-DOF Robotic Manipulator Arm</div>
-            <div class="project-specs">ROS2 // KINEMATICS // CYCLOIDAL DRIVES</div>
-            <p class="project-desc">Custom 3D printed cycloidal gear reduction drives coupled with closed-loop optical encoder feedback.</p>
-            <button class="btn" style="width: 100%; justify-content: center;">OPEN SPECIFICATION SHEET</button>
-          </div>
-        </div>
-
-        <div class="project-card cad-corner">
-          <div class="project-schematic">
-            <svg viewBox="0 0 200 120" stroke="#00f0ff" fill="none" stroke-width="1.5">
-              <rect x="40" y="30" width="120" height="60" rx="5"/>
-              <path d="M 50 30 V 90 M 90 30 V 90 M 130 30 V 90" stroke="#0077ff"/>
-            </svg>
-          </div>
-          <div class="project-body">
-            <div class="project-title">Shell & Tube Heat Exchanger</div>
-            <div class="project-specs">CFD FLUENT // THERMAL DYNAMICS</div>
-            <p class="project-desc">Modeled counter-flow fluid dynamics to maximize thermal transfer efficiency across compact copper tube bundles.</p>
-            <button class="btn" style="width: 100%; justify-content: center;">OPEN SPECIFICATION SHEET</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SPUR GEAR CALCULATOR ================= -->
-    <section id="calc" style="scroll-margin-top: 90px;">
-      <div class="section-title">Quick Eng Tool: Spur Gear Ratio & Speed</div>
-
-      <div class="tool-card cad-corner">
+      <div class="tool-card">
         <div class="calc-grid">
           <div>
-            <h3 style="margin-bottom: 15px; color: var(--accent-cyan);">GEAR RATIO & OUTPUT CALCULATOR</h3>
+            <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.05rem;">GEAR INPUT PARAMETERS</div>
             <div class="form-group">
-              <label>Pinion / Driver Teeth ($N_1$)</label>
+              <label>Pinion Driver Teeth (N1)</label>
               <input type="number" id="gear-n1" class="form-control" value="12" oninput="calculateGear()">
             </div>
             <div class="form-group">
-              <label>Driven Gear Teeth ($N_2$)</label>
+              <label>Driven Gear Teeth (N2)</label>
               <input type="number" id="gear-n2" class="form-control" value="48" oninput="calculateGear()">
             </div>
             <div class="form-group">
-              <label>Input Speed (RPM)</label>
+              <label>Input Motor Speed (RPM)</label>
               <input type="number" id="gear-rpm" class="form-control" value="1750" oninput="calculateGear()">
             </div>
           </div>
 
-          <div class="calc-output cad-corner">
-            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 5px;">GEAR RATIO ($i$)</div>
+          <div class="calc-output">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">CALCULATED GEAR RATIO</div>
             <div class="calc-res-val" id="res-ratio">4.00 : 1</div>
-            <div style="margin: 15px 0; border-top: 1px solid var(--border-color); width: 100%;"></div>
-            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 5px;">OUTPUT SPEED ($n_2$)</div>
+            <div style="margin: 12px 0; border-top: 1px solid var(--border-color); width: 80%;"></div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">OUTPUT SPEED</div>
             <div class="calc-res-val" id="res-rpm" style="color: var(--accent-green);">437.5</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">RPM</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">RPM</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" style="scroll-margin-top: 80px;">
+      <div class="section-title"><span>//</span> Contact</div>
+
+      <div class="contact-card">
+        <div class="contact-grid">
+          <div>
+            <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 8px; font-size: 1.1rem;">RECRUITER INQUIRIES</div>
+            <p style="color: var(--text-muted); margin-bottom: 16px;">
+              Currently open for Full-Time Mechanical Engineering roles, Co-ops, and Internships. Feel free to send a message or connect via LinkedIn.
+            </p>
+            <div class="contact-info-list">
+              <div class="contact-item">
+                <div class="contact-icon">✉</div>
+                <div>colin.brennan.eng@example.com</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div>linkedin.com/in/colin-brennan-mech</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>Open to Relocation</div>
+              </div>
+            </div>
+          </div>
+
+          <form onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label>Name / Company</label>
+              <input type="text" class="form-control" placeholder="Hiring Manager" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" class="form-control" placeholder="name@company.com" required>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" rows="3" placeholder="Opportunity or role details..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">SEND MESSAGE</button>
+          </form>
         </div>
       </div>
     </section>
 
   </div>
 
-  <!-- ================= MODAL FOR ADDING TASK ================= -->
-  <div class="modal-overlay" id="taskModal">
-    <div class="modal cad-corner">
+  <!-- ================= MODAL DIALOG ================= -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal">
       <div class="modal-header">
-        <div class="modal-title">// INITIALIZE NEW TASK</div>
-        <button class="btn-icon" onclick="closeModal()" style="font-size: 1.2rem;">✕</button>
+        <div class="modal-title" id="modalTitle">// SPECIFICATIONS</div>
+        <button class="btn-icon" onclick="closeModal()">✕</button>
       </div>
-
-      <form id="taskForm" onsubmit="handleAddTask(event)">
-        <div class="form-group">
-          <label>Deliverable / Task Title</label>
-          <input type="text" id="taskTitle" class="form-control" placeholder="e.g. ME 305 Machine Design Homework 4" required>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Category</label>
-            <select id="taskCategory" class="form-control">
-              <option value="school">School / Academic</option>
-              <option value="personal">Personal / Project</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Priority Rank</label>
-            <select id="taskPriority" class="form-control">
-              <option value="high">High Stress (Urgent)</option>
-              <option value="med" selected>Medium</option>
-              <option value="low">Low Priority</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Course / Tag</label>
-            <input type="text" id="taskTag" class="form-control" placeholder="e.g. ME305 or CAD">
-          </div>
-
-          <div class="form-group">
-            <label>Due Date</label>
-            <input type="date" id="taskDueDate" class="form-control" required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Details / Scope</label>
-          <textarea id="taskDesc" class="form-control" rows="3" placeholder="Notes, problem set scope, or parameters..."></textarea>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn" onclick="closeModal()">CANCEL</button>
-          <button type="submit" class="btn btn-primary">SAVE TO QUEUE</button>
-        </div>
-      </form>
+      <div id="modalBody" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;"></div>
+      <button class="btn btn-primary" onclick="closeModal()" style="width: 100%; justify-content: center;">CLOSE</button>
     </div>
   </div>
 
   <!-- ================= FOOTER ================= -->
   <footer>
     <div class="container">
-      <div>MECH_CORE Task Tracker & Portfolio // Colin Brennan</div>
-      <div style="margin-top: 6px;">Engineered with clean UI, zero-framework HTML/CSS/JS</div>
+      <div>COLIN BRENNAN | MECHANICAL ENGINEERING PORTFOLIO</div>
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
-    // Initial Seed Data tailored for Colin Brennan
-    const initialTasks = [
-      {
-        id: '1',
-        title: 'FEA Stress Analysis - Cantilever Bracket Report',
-        category: 'school',
-        tag: 'ME 410',
-        priority: 'high',
-        dueDate: '2026-09-08',
-        desc: 'Perform mesh convergence study and yield stress calculation in ANSYS.',
-        completed: false
-      },
-      {
-        id: '2',
-        title: 'Fluid Dynamics Navier-Stokes Homework',
-        category: 'school',
-        tag: 'ME 305',
-        priority: 'high',
-        dueDate: '2026-09-10',
-        desc: 'Solve pipe friction loss and Moody Diagram calculations.',
-        completed: false
-      },
-      {
-        id: '3',
-        title: '3D Print Formula SAE Steering Wheel Hub',
-        category: 'personal',
-        tag: 'CAPSTONE',
-        priority: 'med',
-        dueDate: '2026-09-14',
-        desc: 'Slice in Cura with PETG carbon fiber infill for maximum rigidity.',
-        completed: false
-      },
-      {
-        id: '4',
-        title: 'Order Hardware Fasteners from McMaster-Carr',
-        category: 'personal',
-        tag: 'PROJECT',
-        priority: 'low',
-        dueDate: '2026-09-20',
-        desc: 'M4 heat-set inserts and 608zz ball bearings for joint assembly.',
-        completed: true
-      }
-    ];
-
-    // Load from LocalStorage
-    let tasks = JSON.parse(localStorage.getItem('colin_mech_tasks')) || initialTasks;
-    let currentFilter = 'all';
-
-    function saveTasks() {
-      localStorage.setItem('colin_mech_tasks', JSON.stringify(tasks));
-      render();
-    }
-
-    // Modal toggles
-    function openModal() {
-      document.getElementById('taskModal').classList.add('active');
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      document.getElementById('taskDueDate').value = tomorrow.toISOString().split('T')[0];
-    }
-
-    function closeModal() {
-      document.getElementById('taskModal').classList.remove('active');
-      document.getElementById('taskForm').reset();
-    }
-
-    function handleAddTask(e) {
-      e.preventDefault();
-      
-      const newTask = {
-        id: Date.now().toString(),
-        title: document.getElementById('taskTitle').value,
-        category: document.getElementById('taskCategory').value,
-        priority: document.getElementById('taskPriority').value,
-        tag: document.getElementById('taskTag').value.toUpperCase() || 'GENERAL',
-        dueDate: document.getElementById('taskDueDate').value,
-        desc: document.getElementById('taskDesc').value,
-        completed: false // Never auto check tasks! (Guardrail Requirement G)
-      };
-
-      tasks.push(newTask);
-      saveTasks();
-      closeModal();
-    }
-
-    // Explicit User Action Only for Toggling Completion (Guardrail Requirement G)
-    function toggleTask(id) {
-      tasks = tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
-      saveTasks();
-    }
-
-    function deleteTask(id) {
-      tasks = tasks.filter(t => t.id !== id);
-      saveTasks();
-    }
-
-    function filterTasks(filter, btnElement) {
-      currentFilter = filter;
-      document.querySelectorAll('.filter-group .btn').forEach(b => b.classList.remove('active'));
-      if (btnElement) btnElement.classList.add('active');
-      renderTaskList();
-    }
-
-    // Rank Tasks by Urgency/Priority Calculation (Requirement R)
-    function getRankedTasks() {
-      return [...tasks].sort((a, b) => {
-        // Completed items always sit at the bottom
-        if (a.completed !== b.completed) return a.completed ? 1 : -1;
-
-        // Weight priority
-        const pMap = { high: 3, med: 2, low: 1 };
-        const pDiff = pMap[b.priority] - pMap[a.priority];
-        
-        // Date difference
-        const dateA = new Date(a.dueDate).getTime();
-        const dateB = new Date(b.dueDate).getTime();
-
-        if (dateA !== dateB) {
-          return dateA - dateB; // earlier due date first
-        }
-        return pDiff;
-      });
-    }
-
-    // Render Daily Briefing (Requirement R)
-    function renderDailyBriefing() {
-      const briefList = document.getElementById('briefList');
-      const uncompletedRanked = getRankedTasks().filter(t => !t.completed);
-
-      if (uncompletedRanked.length === 0) {
-        briefList.innerHTML = `
-          <li class="brief-item">
-            <span>🎉 All deliverables complete! System nominal.</span>
-          </li>
-        `;
-        return;
-      }
-
-      // Show top 3 urgent tasks for today
-      const top3 = uncompletedRanked.slice(0, 3);
-      briefList.innerHTML = top3.map((t, idx) => `
-        <li class="brief-item ${t.priority === 'high' ? 'urgent' : ''}">
-          <div>
-            <strong>#${idx + 1} [${t.tag}] ${t.title}</strong>
-            <span style="font-size:0.8rem; color:var(--text-muted); display:block;">Due: ${t.dueDate}</span>
-          </div>
-          <span class="badge badge-priority-${t.priority}">${t.priority} STRESS</span>
-        </li>
-      `).join('');
-    }
-
-    // Render Telemetry Gauges
-    function renderStats() {
-      const total = tasks.length;
-      const completed = tasks.filter(t => t.completed).length;
-      const pending = total - completed;
-      const academic = tasks.filter(t => t.category === 'school').length;
-      const personal = tasks.filter(t => t.category === 'personal').length;
-      const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-
-      document.getElementById('stat-total').innerText = total;
-      document.getElementById('stat-pending').innerText = pending;
-      document.getElementById('stat-academic').innerText = academic;
-      document.getElementById('stat-personal').innerText = personal;
-      
-      document.getElementById('gauge-percent').innerText = `${percent}%`;
-      document.getElementById('gauge-fill').style.width = `${percent}%`;
-    }
-
-    // Render Ranked Task List
-    function renderTaskList() {
-      const listContainer = document.getElementById('taskList');
-      const ranked = getRankedTasks();
-
-      let filtered = ranked.filter(t => {
-        if (currentFilter === 'school') return t.category === 'school';
-        if (currentFilter === 'personal') return t.category === 'personal';
-        if (currentFilter === 'pending') return !t.completed;
-        return true;
-      });
-
-      if (filtered.length === 0) {
-        listContainer.innerHTML = `
-          <div class="empty-state cad-corner">
-            <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; color: var(--accent-cyan);">// NO QUEUED DELIVERABLES</div>
-            <div>Use "LOG NEW TASK" above to populate your task list.</div>
-          </div>
-        `;
-        return;
-      }
-
-      listContainer.innerHTML = filtered.map((t, i) => {
-        const categoryBadge = t.category === 'school' 
-          ? `<span class="badge badge-school">ACADEMIC [${t.tag}]</span>`
-          : `<span class="badge badge-personal">PERSONAL [${t.tag}]</span>`;
-
-        const priorityBadge = `<span class="badge badge-priority-${t.priority}">${t.priority} STRESS</span>`;
-
-        return `
-          <div class="task-card ${t.completed ? 'completed' : ''} cad-corner">
-            <div class="custom-checkbox" onclick="toggleTask('${t.id}')"></div>
-            
-            <div class="task-main">
-              <div class="task-meta">
-                <span class="rank-tag">RANK #${i + 1}</span>
-                ${categoryBadge}
-                ${priorityBadge}
-                <span class="task-date">
-                  📅 DUE: ${t.dueDate}
-                </span>
-              </div>
-              <div class="task-title">${t.title}</div>
-              ${t.desc ? `<div class="task-desc">${t.desc}</div>` : ''}
-            </div>
-
-            <div class="task-actions">
-              <button class="btn-icon" onclick="deleteTask('${t.id}')" title="Delete Task">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"></polyline>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function render() {
-      renderDailyBriefing();
-      renderStats();
-      renderTaskList();
-    }
-
     function calculateGear() {
       const n1 = parseFloat(document.getElementById('gear-n1').value) || 1;
       const n2 = parseFloat(document.getElementById('gear-n2').value) || 1;
@@ -1383,12 +1030,23 @@
       document.getElementById('res-rpm').innerText = outRpm;
     }
 
-    window.onload = function() {
-      // Set current date in header brief
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('currentDate').innerText = today;
+    function showProjectDetails(title, details) {
+      document.getElementById('modalTitle').innerText = `// ${title.toUpperCase()} SPECS`;
+      document.getElementById('modalBody').innerText = details;
+      document.getElementById('projectModal').classList.add('active');
+    }
 
-      render();
+    function closeModal() {
+      document.getElementById('projectModal').classList.remove('active');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for your message. Colin will respond promptly!');
+      e.target.reset();
+    }
+
+    window.onload = function() {
       calculateGear();
     };
   </script>
