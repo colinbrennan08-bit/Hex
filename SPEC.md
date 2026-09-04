@@ -20,7 +20,7 @@ after each dash and leave the dashes alone.
 - **R &mdash; Requirements:** *needs a clean easy to read UI and showcase me and make me look good to recruters, and showcase my skills and projects*
 - **G &mdash; Guardrails:** *Dont make me look bad, keep it personalized, not em dashes*
 - **E &mdash; Experience:** *blue, techno, engineering,dark blue with light blue accents, engineering grid paper background*
-- **T &mdash; Test:** *Show off me and make me look like a valuable member*
+- **T &mdash; Test:** *Show off me and make me look like a valuable member, make sure it reads professional to the corporate industries*
 
 ---
 
