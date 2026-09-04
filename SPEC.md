@@ -15,12 +15,12 @@ after each dash and leave the dashes alone.
 
 ---
 
-- **T &mdash; Thing:** *one sentence. If someone asked "what did you make?", this is the answer*
-- **A &mdash; Audience:** *a specific person, not a category*
-- **R &mdash; Requirements:** *the two or three things that, if missing, make it pointless*
-- **G &mdash; Guardrails:** *what it must never do*
-- **E &mdash; Experience:** *sections in order, one accent color, one site it should feel like*
-- **T &mdash; Test:** *what you would check before showing it to someone whose opinion you care about*
+- **T &mdash; Thing:** *School and personal task tracker and manager, reminds me of upcoming event and assignemnts*
+- **A &mdash; Audience:** *Personalized for me as a mechanical engineering major*
+- **R &mdash; Requirements:** *needs a clean easy to read UI and must give daily breifs on what I need to work on, ranks task by when I should do them*
+- **G &mdash; Guardrails:** *Assume anything and auto check tasks or not notify me of a task*
+- **E &mdash; Experience:** *blue, techno, engineering,dark blue with light blue accents, engineering grid paper background*
+- **T &mdash; Test:** *That it can track all my tasks and notifies me what needs to get done*
 
 ---
 
