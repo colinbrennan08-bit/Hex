@@ -1,155 +1,427 @@
 <!DOCTYPE html>
-<!--
-  ================================================================
-  READ THIS BEFORE YOU PASTE ANYTHING
-
-  When Gemini gives you a page, you do NOT paste it into a part of
-  this file. You replace the entire file.
-
-  Click into the editor, press Ctrl+A (Cmd+A on Mac), press Delete,
-  then paste. Everything here is meant to be thrown away.
-
-  Do that only AFTER your live link works. Get the link first.
-  ================================================================
--->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My first site</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0d1d30;
-    --card: #142a44;
-    --line: #27466a;
-    --aqua: #6de1d7;
-    --text: #ffffff;
-    --muted: #94a9bf;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--navy);
-    color: var(--text);
-    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    padding: 6vh 20px;
-  }
-  main { width: 100%; max-width: 640px; }
-  .badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin-bottom: 18px;
-  }
-  h1 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 800;
-    font-size: clamp(38px, 9vw, 68px);
-    letter-spacing: -0.05em;
-    line-height: 1.02;
-    margin: 0 0 8px;
-  }
-  .name {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: clamp(18px, 4vw, 24px);
-    letter-spacing: -0.04em;
-    color: var(--aqua);
-    margin: 0 0 24px;
-  }
-  p.lead { font-size: 18px; color: var(--muted); margin: 0 0 34px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 18px;
-  }
-  .card h2 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin: 0 0 16px;
-  }
-  ol { margin: 0; padding-left: 20px; }
-  li { margin-bottom: 12px; color: var(--muted); }
-  li:last-child { margin-bottom: 0; }
-  li b { color: var(--text); font-weight: 700; }
-  code {
-    font-family: ui-monospace, "SF Mono", Consolas, monospace;
-    font-size: 0.92em;
-    background: #0a1727;
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 1px 6px;
-    color: var(--aqua);
-  }
-  a { color: var(--aqua); }
-  footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #6e839a;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard & Task Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-school: #38bdf8;
+      --accent-personal: #a855f7;
+      --success: #22c55e;
+      --danger: #ef4444;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--accent-school), var(--accent-personal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--text-muted);
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .stat-card .number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+
+    .task-form-container {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      margin-bottom: 2.5rem;
+    }
+
+    .task-form-container h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr auto;
+      gap: 0.75rem;
+    }
+
+    input, select, button {
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background-color: #0f172a;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent-school);
+    }
+
+    button.btn-add {
+      background-color: var(--accent-school);
+      color: #0f172a;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    button.btn-add:hover {
+      opacity: 0.9;
+    }
+
+    .tracker-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 850px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      .tracker-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .column {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .column-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--card-border);
+    }
+
+    .column-header.school {
+      border-bottom-color: var(--accent-school);
+    }
+
+    .column-header.personal {
+      border-bottom-color: var(--accent-personal);
+    }
+
+    .task-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .task-item {
+      background-color: #0f172a;
+      border: 1px solid var(--card-border);
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      transition: transform 0.1s;
+    }
+
+    .task-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .task-item.completed .task-title {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .task-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .task-left input[type="checkbox"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      cursor: pointer;
+      accent-color: var(--success);
+    }
+
+    .task-info {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .task-title {
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .task-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .tag-priority {
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .priority-High { background-color: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .priority-Medium { background-color: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .priority-Low { background-color: rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+    .btn-delete {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.4rem;
+      border-radius: 4px;
+    }
+
+    .btn-delete:hover {
+      color: var(--danger);
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .empty-state {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-<main>
 
-  <span class="badge">Cal Poly Vibe Coding &middot; Session 01</span>
+  <div class="container">
+    <header>
+      <h1>Personal & School Dashboard</h1>
+      <p>Keep track of your assignments, projects, and personal errands in one place.</p>
+    </header>
 
-  <h1>It&rsquo;s live.</h1>
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div>Total Tasks</div>
+        <div class="number" id="stat-total">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Pending Assignments</div>
+        <div class="number" id="stat-school" style="color: var(--accent-school)">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Pending Personal</div>
+        <div class="number" id="stat-personal" style="color: var(--accent-personal)">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Completed</div>
+        <div class="number" id="stat-completed" style="color: var(--success)">0</div>
+      </div>
+    </div>
 
-  <!-- Step 5: change the name below to yours, then commit. -->
-  <p class="name">Built by Colin Brennan</p>
+    <div class="task-form-container">
+      <h2>Add New Item</h2>
+      <form id="task-form">
+        <input type="text" id="task-title" placeholder="Task or assignment name..." required>
+        <select id="task-category">
+          <option value="School">School</option>
+          <option value="Personal">Personal</option>
+        </select>
+        <select id="task-priority">
+          <option value="Medium">Medium Priority</option>
+          <option value="High">High Priority</option>
+          <option value="Low">Low Priority</option>
+        </select>
+        <input type="date" id="task-date">
+        <button type="submit" class="btn-add">Add Task</button>
+      </form>
+    </div>
 
-  <p class="lead">
-    This page is on the internet. Anyone you send this link to can open it,
-    on any device, right now. You made that happen in about five minutes.
-  </p>
+    <div class="tracker-grid">
+      <div class="column">
+        <div class="column-header school">
+          <h2>School Assignments</h2>
+        </div>
+        <ul class="task-list" id="school-list"></ul>
+      </div>
 
-  <div class="card">
-    <h2>Three things, in this order</h2>
-    <ol>
-      <li><b>Put your name on it.</b> Edit <code>index.html</code>, change
-        YOUR NAME HERE above, commit, refresh this page.</li>
-      <li><b>Submit this link.</b> Go to
-        <a href="https://www.calpolyvibecoding.com/">calpolyvibecoding.com</a>,
-        make an account, and paste this URL in. That is how you get counted,
-        and how Claude seats get assigned.</li>
-      <li><b>Then build.</b> Open Gemini, get a page, and replace this entire
-        file with it.</li>
-    </ol>
+      <div class="column">
+        <div class="column-header personal">
+          <h2>Personal Tasks</h2>
+        </div>
+        <ul class="task-list" id="personal-list"></ul>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
-    <h2>How to replace this page</h2>
-    <ol>
-      <li>Copy what Gemini gives you with the <b>copy button</b> on the code
-        block. Do not click and drag.</li>
-      <li>Open <code>index.html</code> here and click the pencil icon.</li>
-      <li><b>Ctrl+A</b> (<b>Cmd+A</b> on Mac), then <b>Delete</b>. All of it.
-        Yes, really.</li>
-      <li>Paste, commit, refresh.</li>
-    </ol>
-  </div>
+  <script>
+    let tasks = JSON.parse(localStorage.getItem('dashboard_tasks')) || [];
 
-  <footer>
-    Nothing on this page is precious. It exists so the link has something to
-    show before you have something of your own.
-  </footer>
+    const form = document.getElementById('task-form');
+    const schoolList = document.getElementById('school-list');
+    const personalList = document.getElementById('personal-list');
 
-</main>
+    function saveTasks() {
+      localStorage.setItem('dashboard_tasks', JSON.stringify(tasks));
+      render();
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('task-title').value.trim();
+      const category = document.getElementById('task-category').value;
+      const priority = document.getElementById('task-priority').value;
+      const dueDate = document.getElementById('task-date').value;
+
+      if (!title) return;
+
+      const newTask = {
+        id: Date.now(),
+        title,
+        category,
+        priority,
+        dueDate,
+        completed: false
+      };
+
+      tasks.push(newTask);
+      saveTasks();
+      form.reset();
+    });
+
+    function toggleTask(id) {
+      tasks = tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+      saveTasks();
+    }
+
+    function deleteTask(id) {
+      tasks = tasks.filter(t => t.id !== id);
+      saveTasks();
+    }
+
+    function updateStats() {
+      document.getElementById('stat-total').textContent = tasks.length;
+      document.getElementById('stat-school').textContent = tasks.filter(t => t.category === 'School' && !t.completed).length;
+      document.getElementById('stat-personal').textContent = tasks.filter(t => t.category === 'Personal' && !t.completed).length;
+      document.getElementById('stat-completed').textContent = tasks.filter(t => t.completed).length;
+    }
+
+    function renderList(category, container) {
+      container.innerHTML = '';
+      const filteredTasks = tasks.filter(t => t.category === category);
+
+      if (filteredTasks.length === 0) {
+        container.innerHTML = `<div class="empty-state">No ${category.toLowerCase()} tasks added yet.</div>`;
+        return;
+      }
+
+      filteredTasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = `task-item ${task.completed ? 'completed' : ''}`;
+        
+        const dateStr = task.dueDate ? new Date(task.dueDate + 'T00:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : 'No due date';
+
+        li.innerHTML = `
+          <div class="task-left">
+            <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(${task.id})">
+            <div class="task-info">
+              <span class="task-title">${escapeHtml(task.title)}</span>
+              <div class="task-meta">
+                <span class="tag-priority priority-${task.priority}">${task.priority}</span>
+                <span>Due: ${dateStr}</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-delete" onclick="deleteTask(${task.id})" title="Delete Task">&times;</button>
+        `;
+        container.appendChild(li);
+      });
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function render() {
+      renderList('School', schoolList);
+      renderList('Personal', personalList);
+      updateStats();
+    }
+
+    render();
+  </script>
 </body>
 </html>
